@@ -8,6 +8,8 @@
 
 ![image-20230219005012177](http://src.star-tears.cn/img-bed/web-202302190050274.png)
 
+![image-20230219005311756](http://src.star-tears.cn/img-bed/web-202302190053822.png)
+
 ## 安装运行
 
 ### docker compose
@@ -36,6 +38,8 @@ docker compose stop
 docker compose restart
 ```
 
+
+
 ### docker
 
 ```shell
@@ -43,8 +47,6 @@ docker compose restart
 docker build -t <镜像名> .
 docker run -p 3000:3000 -p 24678:24678 <镜像>
 ```
-
-
 
 ### npm
 
