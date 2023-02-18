@@ -11,10 +11,9 @@
             </div>
             <div class="flex-grow my-auto w-full">
                 <div class="ml-3 text-sm">
-                    <label for="comments" class="font-semibold text-gray-700">Title</label>
+                    <label for="comments" class="font-semibold text-gray-700">{{ "Title: " + title }}</label>
                     <div class="flex">
-                        <div
-                            class="px-2 text-xs text-blue-500 bg-gray-100 rounded-full sm:px-4 sm:py-1 dark:bg-gray-700 ">
+                        <div class="px-2 text-xs text-blue-500 bg-gray-100 rounded-full sm:px-4 sm:py-1 dark:bg-gray-700 ">
                             标签
                         </div>
                     </div>
@@ -40,22 +39,25 @@
 interface Props {
     title?: string
     id?: string
-    num?: string
+    count?: string
     subtitle?: string
     update?: boolean
 }
 
 const props = defineProps<Props>();
 const checkBoxUnit = ref(null);
-const filename = "error.txt";
-
+const filename = props.id + "_" + props.count;
+const title = ref(filename + ".m4a");
+if (title.value.startsWith("undefined")) {
+    title.value = "";
+}
 watch(() => props.update, () => {
     if ((checkBoxUnit.value! as HTMLInputElement).checked)
         downLoadFile();
 })
 
 function getFilePath() {
-    return "/files/" + filename;
+    return "/files/" + props.id + "/audio/" + props.count + ".m4a";
 }
 
 function downLoadFile() {
@@ -71,6 +73,4 @@ function downLoadFile() {
 
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

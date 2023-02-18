@@ -13,7 +13,8 @@
             <div class="flex flex-col bg-emerald-50 p-4 rounded-2xl">
                 <h1 class="mx-6 opacity-90 font-mono font-semibold">搜索书籍id: {{ searchid }}</h1>
                 <div class="flex flex-row-reverse m-4 gap-4">
-                    <button class=" bg-purple-100 hover:bg-purple-300 text-grey-darkest font-bold py-2 px-4 rounded inline-flex items-center"
+                    <button
+                        class=" bg-purple-100 hover:bg-purple-300 text-grey-darkest font-bold py-2 px-4 rounded inline-flex items-center"
                         @click="downLoadFiles">
                         <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
@@ -30,8 +31,8 @@
                     </button>
                 </div>
                 <div ref="parentOfFileItem">
-                    <div v-for="item in items" class="my-1">
-                        <FileItem :update="downLoadFilesclick" />
+                    <div v-for="item in items" class="my-1" :key="new Date().getTime()">
+                        <FileItem :id="item['id']" :count="item['count']" :update="downLoadFilesclick" />
                     </div>
                 </div>
             </div>
@@ -44,16 +45,21 @@ const searchid = ref("");
 let downLoadFilesclick = ref(false);
 const parentOfFileItem = ref(null);
 
-const items = ref([{}, {}, {}])
+let items = [{}, {}, {}];
 function getIdContent(search_id: string) {
     // console.log(search_id);
     searchid.value = search_id;
+    items = [];
+    for (let i = 0; i < 50; i++) {
+        let tmpdict = {};
+        tmpdict["id"] = searchid.value;
+        tmpdict["count"] = i.toString();
+        items.push(tmpdict);
+    }
 }
 function downLoadFiles() {
     downLoadFilesclick.value = !downLoadFilesclick.value;
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
