@@ -25,6 +25,7 @@
 
             <p class="mt-5 opacity-80">搜索喜马拉雅对应有声小说id，下载内容。<a class="text-blue-600 hover:underline"
                     href="https://www.ximalaya.com/" target="_blank">喜马拉雅官网</a>.
+                <a class="text-blue-600 hover:underline" href="/datagraph" target="_blank">数据分析</a>.
             </p>
         </div>
     </div>
@@ -45,6 +46,4 @@ function onClickSearchBtn() {
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
