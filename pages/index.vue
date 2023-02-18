@@ -43,9 +43,10 @@
 const searchid = ref("");
 let downLoadFilesclick = ref(false);
 const parentOfFileItem = ref(null);
+
 const items = ref([{}, {}, {}])
 function getIdContent(search_id: string) {
-    console.log(search_id);
+    // console.log(search_id);
     searchid.value = search_id;
 }
 function downLoadFiles() {
