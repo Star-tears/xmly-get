@@ -2,8 +2,6 @@
 
 ## 效果展示
 
-[xmly-get.star-tears.cn](xmly-get.star-tears.cn)
-
 ![image-20230219004914343](http://src.star-tears.cn/img-bed/web-202302190049635.png)
 
 ![image-20230219005012177](http://src.star-tears.cn/img-bed/web-202302190050274.png)
